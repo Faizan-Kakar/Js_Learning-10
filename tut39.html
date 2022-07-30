@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promisses</title>
+</head>
+<body>
+    <h1>This is tutorial 39</h1>
+
+
+    <script>
+        console.log('This is tutorial 39');
+
+function func1()
+{
+    return new Promise(function (resolve, reject) {
+
+        setTimeout(() => {
+            
+            const error = true;
+
+            if(!error)
+            {
+                console.log('It has been resolved');
+                resolve();
+            }
+            else{
+                console.log('It has not been resolved');
+                reject();
+            }
+        }, 2000);
+    })
+}
+
+func1().then(function(){
+    console.log('Thanks bro for completing your promise');
+}).catch(function(){
+    console.log('Verry bad you dont complete your promise');
+})
+
+    </script>
+</body>
+</html>

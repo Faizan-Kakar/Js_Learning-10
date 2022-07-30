@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Students List</h1>
+    <ul id="students"></ul>
+
+    <!-- The javascript starts here -->
+
+    <script>
+        const students = [ 
+    { name : 'faizan', subject : 'physics'},
+    { name : 'salman', subject : 'Maths'}
+ ]
+
+ function enrollStudent(student) {
+
+    return new Promise(function(resolve,reject)
+    {
+        
+        setTimeout(function () {
+            
+            students.push(student);
+            
+            const error = false;
+            
+            if(!error)
+            {
+                console.log('The student has been enrolled');
+                resolve();
+            }
+            else
+            {
+                reject();
+            }   
+        }, 3000);
+    })
+    }
+    
+    function getStudents(){
+        setTimeout(function() {
+            let str = "";
+            students.forEach(function(student){
+                str += `<li> ${student.name}</li>`
+            });
+            document.getElementById('students').innerHTML = str;
+            console.log("Students have been fetched");
+        }, 1000);   
+ }
+
+let h = {name : 'huzaifa', subject : 'classic'}
+enrollStudent(h).then(getStudents).catch(function(){console.log('sorry there is a problem')});
+    </script>
+</body>
+</html>
